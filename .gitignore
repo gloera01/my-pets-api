@@ -3,3 +3,4 @@ node_modules
 .gitcredentials
 .gitcredenetials
 coverage
+.vscode
