@@ -1,12 +1,12 @@
-const { Router } = require('express');
-const usersController = require('./controller');
+import { Router } from 'express';
+import usersController from './controller';
 
-const router = Router({ mergeParams: true })
+const usersRouter = Router({ mergeParams: true })
   .post('/', usersController.post)
   .post('/login', usersController.login);
 
-  // TODO:
-  // reset password endpoint
-  // patch user endpoint
+// TODO:
+// reset password endpoint
+// patch user endpoint
 
-module.exports = router;
+export default usersRouter;

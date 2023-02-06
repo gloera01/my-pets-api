@@ -1,8 +1,8 @@
-const { Router } = require('express');
-const petsController = require('./controller');
+import { Router } from 'express';
+import petsController from './controller';
 
-const router = Router({ mergeParams: true })
+const petsRouter = Router({ mergeParams: true })
   .get('/', petsController.get)
   .get('/:petId', petsController.getById);
 
-module.exports = router;
+export default petsRouter;

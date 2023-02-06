@@ -1,11 +1,11 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 // paginate
-const Pet = require('./Pet');
+import Pet from './Pet';
 
 const UserSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
@@ -18,18 +18,18 @@ const UserSchema = new Schema({
   createDate: {
     type: Date,
     required: false,
-    default: Date.now
+    default: Date.now,
   },
   modifiedDate: {
     type: Date,
-    required: false
+    required: false,
   },
   active: {
     type: Boolean,
     required: false,
     default: true,
   },
-  pets: [Pet]
+  pets: [Pet],
 });
 
-module.exports = model('User', UserSchema);
+export default model('User', UserSchema);

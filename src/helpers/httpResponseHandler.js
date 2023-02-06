@@ -1,7 +1,7 @@
-const httpStatusCodes = require('../constants/httpStatusCodes');
-const baseResponse = require('../commons/baseResponse');
+import statusCodes from '../constants/httpCodes';
+import baseResponse from '../commons/baseResponse';
 
-module.exports = class HttpResonseHandler {
+class HttpResonseHandler {
   constructor(expressRes) {
     this.expressRes = expressRes;
   }
@@ -15,11 +15,11 @@ module.exports = class HttpResonseHandler {
   ok(payload, customMessage = 'Success') {
     const response = {
       ...baseResponse,
-      statusCode: httpStatusCodes.ok,
+      statusCode: statusCodes.ok,
       message: customMessage,
-      payload
+      payload,
     };
-    this.expressRes.status(httpStatusCodes.ok);
+    this.expressRes.status(statusCodes.ok);
     this.expressRes.json(response);
     return response;
   }
@@ -27,11 +27,11 @@ module.exports = class HttpResonseHandler {
   created(payload, customMessage = 'Entity created') {
     const response = {
       ...baseResponse,
-      statusCode: httpStatusCodes.created,
+      statusCode: statusCodes.created,
       message: customMessage,
-      payload
+      payload,
     };
-    this.expressRes.status(httpStatusCodes.ok);
+    this.expressRes.status(statusCodes.ok);
     this.expressRes.json(response);
     return response;
   }
@@ -44,7 +44,7 @@ module.exports = class HttpResonseHandler {
   serverError(error) {
     const response = {
       ...baseResponse,
-      statusCode: httpStatusCodes.internalServerError,
+      statusCode: statusCodes.internalServerError,
       message: 'Internal server error',
       errorMessage: error.message,
     };
@@ -53,3 +53,5 @@ module.exports = class HttpResonseHandler {
     return response;
   }
 }
+
+export default HttpResonseHandler;

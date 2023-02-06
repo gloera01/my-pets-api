@@ -1,8 +1,8 @@
-const HttpResponseHandler = require('../../helpers/httpResponseHandler');
-const User = require('../../models/User');
-// const validator = require('../../validators/user');
+import HttpResponseHandler from '../../helpers/httpResponseHandler';
+import User from '../../models/User';
+// import validator from '../../validators/user';
 
-exports.post = async (req, res) => {
+export const post = async (req, res) => {
   const httpResponse = new HttpResponseHandler(res);
   try {
     // TODO:
@@ -23,16 +23,20 @@ exports.post = async (req, res) => {
     // map newUser into DTO user
 
     return httpResponse.created(newUser);
-  } catch(error) {
+  } catch (error) {
     return httpResponse.serverError(error);
   }
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
   const httpResponse = new HttpResponseHandler(res);
   try {
-    return httpResponse.ok({credentials: { accessToken: 'asdjabjhdsa67sd76dfs67dfs' }});
-  } catch(error) {
+    return httpResponse.ok({
+      credentials: { accessToken: 'asdjabjhdsa67sd76dfs67dfs' },
+    });
+  } catch (error) {
     return httpResponse.serverError(error);
   }
 };
+
+export default { post, login };

@@ -1,4 +1,4 @@
-module.exports = {
+const statusCodes = {
   ok: 200,
   created: 201,
   accepted: 202,
@@ -10,3 +10,5 @@ module.exports = {
   unprocessableEntity: 422,
   internalServerError: 500,
 };
+
+export default statusCodes;

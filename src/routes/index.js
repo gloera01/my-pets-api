@@ -1,17 +1,17 @@
-const Router = require('express');
-require('express-async-errors');
-const { basePath } = require('../../config');
+import { Router } from 'express';
+import 'express-async-errors';
+import { basePath } from '../../config.js';
 
-const users = require('./users/router');
-const pets = require('./pets/router');
+import usersRouter from './users/router';
+import petsRouter from './pets/router';
 
-const router = Router();
+const routes = Router();
 
 // middlewares
 // auth
 // logger
 
-router.use(`${basePath}/users`, users);
-router.use(`${basePath}/users/:id/pets`, pets);
+routes.use(`${basePath}/users`, usersRouter);
+routes.use(`${basePath}/users/:id/pets`, petsRouter);
 
-module.exports = router;
+export default routes;
