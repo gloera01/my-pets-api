@@ -31,9 +31,7 @@ export const post = async (req, res) => {
 export const login = async (req, res) => {
   const httpResponse = new HttpResponseHandler(res);
   try {
-    return httpResponse.ok({
-      credentials: { accessToken: 'asdjabjhdsa67sd76dfs67dfs' },
-    });
+    return httpResponse.ok({ accessToken: 'asdjabjhdsa67sd76dfs67dfs' });
   } catch (error) {
     return httpResponse.serverError(error);
   }
