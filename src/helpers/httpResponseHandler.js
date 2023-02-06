@@ -1,7 +1,7 @@
 import statusCodes from '../constants/httpCodes';
 import baseResponse from '../commons/baseResponse';
 
-class HttpResonseHandler {
+class HttpResponseHandler {
   constructor(expressRes) {
     this.expressRes = expressRes;
   }
@@ -54,4 +54,4 @@ class HttpResonseHandler {
   }
 }
 
-export default HttpResonseHandler;
+export default HttpResponseHandler;
